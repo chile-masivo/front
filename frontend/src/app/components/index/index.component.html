@@ -1,0 +1,69 @@
+<nz-layout style="height: 100%;">
+
+    <nz-header>
+        <i
+          class="trigger"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed" 
+
+        ></i>
+       
+
+     <img class='logo' style="width: 150px;" src="../../../assets/logo-safecheck.svg" >
+        
+      </nz-header>
+
+  
+    <nz-layout>
+ 
+        <nz-sider nzCollapsible
+        [(nzCollapsed)]="isCollapsed"
+        [nzBreakpoint]="'xs'" 
+        [nzTrigger]='null' 
+        [nzCollapsedWidth]="isMobile ? 0 : 84"	>
+        
+          <ul style="margin-top: 30px;" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-menu-item routerLink="/dashboard">
+              <i nz-icon nzType="area-chart"></i>
+              <span>Dashboard</span>
+            </li>
+
+
+            <li nz-submenu nzTitle="Usuarios" nzIcon="team">
+              <ul>
+                <li nz-menu-item routerLink="/users/list-users">
+                  <i nz-icon nzType="unordered-list"></i>
+                  <span>Listado Usuarios</span>
+                 </li>
+                <li nz-menu-item routerLink="/users/create">
+                  <i nz-icon nzType="user-add"></i>
+                  <span>Crear Usuario</span></li>
+              </ul>
+            </li>
+            
+            <li nz-menu-item routerLink="/search/single">
+              <i nz-icon nzType="search"></i>
+              <span>Busqueda individual</span>
+            </li>
+            <li nz-menu-item routerLink="/search/multiple">
+              <i nz-icon nzType="upload"></i>
+              <span>Busqueda multiple</span>
+            </li>
+            <li nz-menu-item routerLink="/search/user-history">
+              <i nz-icon nzType="history"></i>
+              <span>Historial de Busqueda</span>
+            </li>
+            <li nz-menu-item routerLink="/my-profile">
+              <i nz-icon nzType="user"></i>
+              <span>Mi perfil</span>
+            </li>
+          
+          </ul>
+        </nz-sider>
+
+      <nz-content style="margin-top: 20px;">
+          <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
